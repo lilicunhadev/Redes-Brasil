@@ -52,5 +52,7 @@ Route::prefix('painel')->group(function(){
 	//Pesquisa de Clientes
 	Route::any('/search', 'ClientController@search')->name('search');
 	Route::post('clientes/busca-municipio', 'ClientController@buscarMunicipios')->name('cliente.buscar-municipios');
+
+	//Teste...
 	
 });
