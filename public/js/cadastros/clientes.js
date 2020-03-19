@@ -26,12 +26,12 @@ function buscarMunicipios() {
             $.each(response.cidades,
                 function (index, cidade) {
                     if(index==0){
-                        $("#cidade").append("<option selected value=''>Selecione</option>");
+                        $("#cidade").append("<option selected disabled value=''>Selecione</option>");
                     }
-                    $("#cidade").append("<option value=" + cidade.id + ">" + cidade.title + "</option>");
+                    $("#cidade").append("<option value=" + cidade.id + "old('cidade') == " + cidade.id+ " ? 'selected='true'' : ''>" + cidade.title + "</option>");
                 });
         },
-        
+    
         statusCode: {
             //erro de autenticação em caso de logout
             401: function () {

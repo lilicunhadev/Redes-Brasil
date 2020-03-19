@@ -35,7 +35,7 @@ return [
     'logo_img_class' => 'brand-image-xl',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'AdminLTE',
+    'logo_img_alt' => 'Redes Brasil',
 
     /*
     |--------------------------------------------------------------------------
@@ -141,7 +141,6 @@ return [
     'login_url' => 'painel/login',
 
     'register_url' => 'painel/register',
-    //'register_url' => null,
 
     'password_reset_url' => 'password/reset',
 

@@ -16,11 +16,9 @@
                 <i class="icon fas fa-ban"></i>
                 Ocorreram um ou mais erros:
             </h5>
-            
             @foreach($errors->all() as $error)
                 <li>{{$error}}</li>
             @endforeach
-            
             </ul>
         </div>
     @endif
@@ -41,14 +39,15 @@
                     </div>   
                     <div class="col-sm-6">
                         <label class="">Tipo de Pessoa</label>
-                        <select id="tipo_cliente" name="tipo_cliente" class="form-control upper">
+                        <select id="tipo_pessoa" name="tipo_pessoa" class="form-control upper @error('tipo_pessoa') is-invalid @enderror">
                             <option value="" selected disabled>Selecione</option>
-                            <option value="FÍSICA">FÍSICA</option>
-                            <option value="JURÍDICA">JURÍDICA</option>
+                            <option value="FÍSICA" <?php if (old('tipo_pessoa') == 'FÍSICA') { ?>selected="true" <?php }; ?>>FÍSICA</option>
+                            <option value="JURÍDICA" <?php if (old('tipo_pessoa') == 'JURÍDICA') { ?>selected="true" <?php }; ?>>JURÍDICA</option>
                         </select>
                     </div>  
                 </div>
                 
+
                 <div class="form-group row">
                     <div class="col-sm-6">
                         <label>País</label>
@@ -82,10 +81,10 @@
                     <div class="col-sm-6">
                         <label class="col-sm-2 col-form-label">Estado</label>
                         <select id="uf" onchange="return buscarMunicipios();" name="uf" type="text" class="form-control upper @error('uf') is-invalid @enderror" required>
-                            <option value="">Selecione</option>
-                               @foreach($states as $state)
-                            <option value="{{$state->id }}" {{ old('uf') == $state->title ? 'selected' : '' }}>{!!$state->title!!}</option>
-                               @endforeach
+                            <option value="" selected disabled>Selecione</option>
+                            @foreach($states as $state)
+                                <option value="{{$state->id }}" {{ old('uf') == $state->id ? 'selected' : '' }}>{!!$state->title!!}</option>
+                            @endforeach
                        </select>
                     </div>
                     <div class="col-sm-6">
@@ -93,8 +92,8 @@
                         <select id="cidade" disabled name="cidade" type="text" class="form-control upper @error('cidade') is-invalid @enderror" required>
                        </select>
                     </div>
-                </div>             
-
+                </div>
+                
                 <div class="form-group row">
                     <div class="col-sm-6">
                         <label>Telefone</label>
@@ -129,11 +128,11 @@
                     </div>
                     <div class="col-sm-6">
                         <label>Tipo de Cliente</label>
-                        <select id="tipo_cliente" name="tipo_cliente" class="form-control upper">
+                        <select id="tipo_cliente" name="tipo_cliente" class="form-control upper @error('tipo_cliente') is-invalid @enderror">
                             <option value="" selected disabled>Selecione</option>
-                            <option value="ALUNO">ALUNO</option>
-                            <option value="CLIENTE">CLIENTE</option>
-                            <option value="CONTATO">CONTATO</option>
+                            <option <?php if (old('tipo_cliente') == 'ALUNO') { ?>selected="true" <?php }; ?> value="ALUNO">ALUNO</option>
+                            <option <?php if (old('tipo_cliente') == 'CLIENTE') { ?>selected="true" <?php }; ?> value="CLIENTE">CLIENTE</option>
+                            <option <?php if (old('tipo_cliente') == 'CONTATO') { ?>selected="true" <?php }; ?> value="CONTATO">CONTATO</option>
                         </select>
                     </div>
                 </div>
@@ -141,8 +140,23 @@
                 <div class="form-group row">
                     <div class="col-sm-6">
                         <label>Onde nos Encontrou</label>
-                        <input type="text" name="onde_nos_encontrou" value="{{old('onde_nos_encontrou')}}" 
-                        	   class="upper form-control @error('onde_nos_encontrou') is-invalid @enderror" />
+                        <select id="onde_nos_encontrou" name="onde_nos_encontrou" class="form-control upper @error('onde_nos_encontrou') is-invalid @enderror">
+                            <option value="" selected disabled>Selecione</option>
+                            <option <?php if (old('onde_nos_encontrou') == 'GOOGLE') { ?>selected="true" <?php }; ?> value="GOOGLE">GOOGLE</option>
+                            <option <?php if (old('onde_nos_encontrou') == 'FACEBOOK') { ?>selected="true" <?php }; ?> value="FACEBOOK">FACEBOOK</option>
+                            <option <?php if (old('onde_nos_encontrou') == 'INSTAGRAM') { ?>selected="true" <?php }; ?> value="INSTAGRAM">INSTAGRAM</option>
+                            <option <?php if (old('onde_nos_encontrou') == 'EMAIL') { ?>selected="true" <?php }; ?> value="EMAIL">EMAIL</option>
+                            <option <?php if (old('onde_nos_encontrou') == 'TELEFONE') { ?>selected="true" <?php }; ?> value="TELEFONE">TELEFONE</option>
+                            <option <?php if (old('onde_nos_encontrou') == 'WHATSAPP') { ?>selected="true" <?php }; ?> value="WHATSAPP">WHATSAPP</option>
+                            <option <?php if (old('onde_nos_encontrou') == 'YOUTUBE') { ?>selected="true" <?php }; ?> value="YOUTUBE">YOUTUBE</option>
+                            <option <?php if (old('onde_nos_encontrou') == 'SKYPE') { ?>selected="true" <?php }; ?> value="SKYPE">SKYPE</option>
+                            <option <?php if (old('onde_nos_encontrou') == 'EX-ALUNO') { ?>selected="true" <?php }; ?> value="EX-ALUNO">EX-ALUNO</option>
+                            <option <?php if (old('onde_nos_encontrou') == 'SITE MK') { ?>selected="true" <?php }; ?> value="SITE MK">SITE MK</option>
+                            <option <?php if (old('onde_nos_encontrou') == 'AMIGO INDICOU') { ?>selected="true" <?php }; ?> value="AMIGO INDICOU">AMIGO INDICOU</option>
+                            <option <?php if (old('onde_nos_encontrou') == 'MUM') { ?>selected="true" <?php }; ?> value="MUM">MUM</option>
+                            <option <?php if (old('onde_nos_encontrou') == 'UNDERLINUX') { ?>selected="true" <?php }; ?> value="UNDERLINUX">UNDERLINUX</option>
+                            <option <?php if (old('onde_nos_encontrou') == 'OUTROS') { ?>selected="true" <?php }; ?> value="OUTROS">OUTROS</option>
+                        </select>
                     </div>
                 </div>
 

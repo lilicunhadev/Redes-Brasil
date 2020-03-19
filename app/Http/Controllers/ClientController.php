@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\cadastros\ClientRequest;
 use App\Client;
 use App\State;
 use App\City;
@@ -43,7 +44,6 @@ class ClientController extends Controller
 
     public function search(Request $request)
     {
-
 
         //"select nome from cidades where uf = AM"
         if ($request->input('busca', 'nome'))
@@ -167,67 +167,28 @@ class ClientController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ClientRequest $request)
     {
-        $data = $request->only([
-            'nome',
-            'tipo_pessoa',
-            'pais',
-            'cep',
-            'endereco',
-            'bairro',
-            'cidade',
-            'uf',
-            'telefone',
-            'celular',
-            'email',
-            'empresa',
-            'cpf_cnpj',
-            'tipo_cliente',
-            'onde_nos_encontrou'
-        ]);
-
-        $validator = Validator::make($data, [
-            'nome' => ['required', 'string', 'max:100'],
-            'tipo_pessoa' => ['required', 'string', 'max:100'],
-            'pais' => ['required', 'string', 'max:50'],
-            'cep' => ['required', 'string', 'max:20'],
-            'endereco' => ['required', 'string', 'max:200'],
-            'bairro' => ['required', 'string', 'max:100'],
-            'cidade' => ['required', 'string', 'max:100'],
-            'uf' => ['required', 'string', 'max:5'],
-            'telefone' => ['required', 'string', 'max:20'],
-            'celular' => ['required', 'string', 'max:20'],
-            'email' => ['required', 'string', 'email', 'max:100'],
-            'empresa' => ['required', 'string', 'max:100'],
-            'cpf_cnpj' => ['required', 'string', 'max:100'],
-            'tipo_cliente' => ['required', 'string', 'max:100'],
-            'onde_nos_encontrou' => ['required', 'string', 'max:100']
-        ]);
-
-        if ($validator->fails()) {
-            return redirect()->route('clients.create')
-            ->withErrors($validator)
-            ->withInput();
-        }
+        
+        $request->all();
 
         $client = new Client;
 
-        $client->nome = mb_strtoupper($data['nome']);
-        $client->tipo_pessoa = mb_strtoupper($data['tipo_pessoa']);
-        $client->pais = mb_strtoupper($data['pais']);
-        $client->cep = mb_strtoupper($data['cep']);
-        $client->endereco = mb_strtoupper($data['endereco']);
-        $client->bairro = mb_strtoupper($data['bairro']);
-        $client->cidade = mb_strtoupper($data['cidade']);
-        $client->uf = mb_strtoupper($data['uf']);
-        $client->telefone = mb_strtoupper($data['telefone']);
-        $client->celular = mb_strtoupper($data['celular']);
-        $client->email = $data['email'];
-        $client->empresa = mb_strtoupper($data['empresa']);
-        $client->cpf_cnpj = mb_strtoupper($data['cpf_cnpj']);
-        $client->tipo_cliente = mb_strtoupper($data['tipo_cliente']);
-        $client->onde_nos_encontrou = mb_strtoupper($data['onde_nos_encontrou']);
+        $client->nome = mb_strtoupper($request['nome']);
+        $client->tipo_pessoa = mb_strtoupper($request['tipo_pessoa']);
+        $client->pais = mb_strtoupper($request['pais']);
+        $client->cep = mb_strtoupper($request['cep']);
+        $client->endereco = mb_strtoupper($request['endereco']);
+        $client->bairro = mb_strtoupper($request['bairro']);
+        $client->cidade = mb_strtoupper($request['cidade']);
+        $client->uf = mb_strtoupper($request['uf']);
+        $client->telefone = mb_strtoupper($request['telefone']);
+        $client->celular = mb_strtoupper($request['celular']);
+        $client->email = $request['email'];
+        $client->empresa = mb_strtoupper($request['empresa']);
+        $client->cpf_cnpj = mb_strtoupper($request['cpf_cnpj']);
+        $client->tipo_cliente = mb_strtoupper($request['tipo_cliente']);
+        $client->onde_nos_encontrou = mb_strtoupper($request['onde_nos_encontrou']);
 
         $client->save();
 
@@ -242,7 +203,19 @@ class ClientController extends Controller
      */
     public function show($id)
     {
-        //
+        $client = Client::find($id);
+
+        if ($client) {
+            $states=$client->state;
+            $cities=$client->state->cities;
+
+            return view ('clients.show', [
+                'client' => $client,
+                'states' => $states,
+                'cities' => $cities
+            ]);
+        }
+        return redirect()->route('clients.index');
     }
 
     /**
@@ -256,8 +229,13 @@ class ClientController extends Controller
         $client = Client::find($id);
 
         if ($client) {
+            $states=State::all();
+            $cities=$client->state->cities;
+
             return view ('clients.edit', [
-                'client' => $client
+                'client' => $client,
+                'states' => $states,
+                'cities' => $cities
             ]);
         }
         return redirect()->route('clients.index');

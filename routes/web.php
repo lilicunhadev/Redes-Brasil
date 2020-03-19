@@ -11,7 +11,6 @@
 |
 */
 
-//Route::get('/', 'Site\HomeController@index');
 Route::get('/', function() {
 	return redirect('painel/login');
 });
@@ -35,10 +34,7 @@ Route::prefix('painel')->group(function(){
 	// CRUD Usuários
 	Route::resource('users', 'Admin\UserController');
 
-	// CRUD Usuários
-	Route::resource('pages', 'Admin\PageController');
-
-	// Tabela de Clientes
+	// Clientes
 	Route::resource('clients', 'ClientController');
 
 	// Página Meu Perfil

@@ -25,6 +25,8 @@ use App\State;
  */
 class Client extends Model
 {
+    public $timestamps = false;
+
     /**
      * The "type" of the auto-incrementing ID.
      * 
