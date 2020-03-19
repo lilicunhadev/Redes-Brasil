@@ -2,6 +2,10 @@
 /public/hot
 /public/storage
 /storage/*.key
+<<<<<<< HEAD
+=======
+.env.backup
+>>>>>>> abef6fd5f7c2ddd7bd66474ee4b7d88690516f8b
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
