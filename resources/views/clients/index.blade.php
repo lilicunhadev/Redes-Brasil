@@ -96,6 +96,10 @@
 
                 </tbody>
         </table>
+
+        <br/>
+        {{ $clients->links() }}
+
     </div>
 
 @endsection
