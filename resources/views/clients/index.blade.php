@@ -21,6 +21,7 @@
     <div class="box-header">
       <div class="card-body">
 
+        {{-- Teste --}}
         <form action="{{ route('search') }}" method="POST" class="form form-inline" role="search">
           @csrf
           <label class="procurar">Procurar por:</label>
