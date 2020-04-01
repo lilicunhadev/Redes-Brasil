@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @property integer $id_modulo
+ * @property integer $id
  * @property string $nome
  * @property string $modalidade
  * @property string $oficial
@@ -17,12 +17,14 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Modulo extends Model
 {
+    public $timestamps = false;
+    
     /**
      * The primary key for the model.
      * 
      * @var string
      */
-    protected $primaryKey = 'id_modulo';
+    protected $primaryKey = 'id';
 
     /**
      * The "type" of the auto-incrementing ID.

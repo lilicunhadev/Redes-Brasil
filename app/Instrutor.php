@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @property integer $id_instrutor
+ * @property integer $id
  * @property string $nome
  * @property string $mikrotik
  * @property string $ubiquiti
@@ -36,7 +36,7 @@ class Instrutor extends Model
      * 
      * @var string
      */
-    protected $primaryKey = 'id_instrutor';
+    protected $primaryKey = 'id';
 
     /**
      * The "type" of the auto-incrementing ID.

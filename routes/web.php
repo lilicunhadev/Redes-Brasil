@@ -35,7 +35,7 @@ Route::prefix('painel')->group(function(){
 	Route::resource('users', 'Admin\UserController');
 
 	// Clientes
-	Route::resource('clients', 'ClientController');
+	Route::resource('clients', 'Cadastros\ClientController');
 
 	// Página Meu Perfil
 	Route::get('profile', 'Admin\ProfileController@index')->name('profile');
@@ -46,9 +46,15 @@ Route::prefix('painel')->group(function(){
 	Route::put('settingssave', 'Admin\SettingController@save')->name('settings.save');
 
 	//Pesquisa de Clientes
-	Route::any('/search', 'ClientController@search')->name('search');
-	Route::post('clientes/busca-municipio', 'ClientController@buscarMunicipios')->name('cliente.buscar-municipios');
-
-	//Teste...
+	Route::any('/search', 'Cadastros\ClientController@search')->name('search');
+	Route::post('clientes/busca-municipio', 'Cadastros\ClientController@buscarMunicipios')->name('cliente.buscar-municipios');
 	
+	//Cursos
+	Route::resource('cursos', 'Cadastros\CursoController');
+
+	//Módulos
+	Route::resource('modulos', 'Cadastros\ModuloController');
+	//Pesquisa de módulos
+	Route::any('/modulos-search', 'Cadastros\ModuloController@search')->name('modulos-search');
+
 });

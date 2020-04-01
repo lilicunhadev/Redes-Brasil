@@ -24,12 +24,11 @@
     @endif
 
     <div class="card">
-
         <div class="card-body">
         
             <form action="{{route('clients.store')}}" method="POST" class="form-horizontal">
             <input type="hidden" id="token" name="_token" value="{{ csrf_token() }}" />
-                @csrf
+            @csrf
 
                 <div class="form-group row">
                     <div class="col-sm-6">
@@ -167,8 +166,8 @@
                 </div>
 
             </form>
+            
         </div>
-
     </div>
 
 @endsection

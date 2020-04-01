@@ -186,6 +186,11 @@ return [
             'url'  => 'painel/users',
             //'can'  => 'edit-users'
         ],
+        [
+            'text' => 'Módulos',
+            'url'  => 'painel/modulos',
+            //'can'  => 'edit-users'
+        ],
         ['header' => 'Configurações'],
         //[
         //  'text' => 'Configurações',

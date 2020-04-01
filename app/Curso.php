@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @property integer $id_curso
+ * @property integer $id
  * @property string $ano
  * @property string $mes
  * @property string $dia
@@ -36,7 +36,7 @@ class Curso extends Model
      * 
      * @var string
      */
-    protected $primaryKey = 'id_curso';
+    protected $primaryKey = 'id';
 
     /**
      * The "type" of the auto-incrementing ID.

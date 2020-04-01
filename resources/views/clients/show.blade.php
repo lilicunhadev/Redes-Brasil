@@ -154,8 +154,6 @@
                 <label style="color:blue;">{{$client->onde_nos_encontrou}}</label>
             </div>
         </div>
-
-
     </div>
 </div>
 

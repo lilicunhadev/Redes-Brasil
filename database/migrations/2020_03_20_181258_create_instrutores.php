@@ -14,7 +14,7 @@ class CreateInstrutores extends Migration
     public function up()
     {
         Schema::create('instrutores', function (Blueprint $table) {
-            $table->bigIncrements('id_instrutor');
+            $table->bigIncrements('id');
             $table->string('nome', 50);
             $table->string('mikrotik', 5)->nullable();
             $table->string('ubiquiti', 5)->nullable();

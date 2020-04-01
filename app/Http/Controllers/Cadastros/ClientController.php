@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Cadastros;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -41,113 +41,6 @@ class ClientController extends Controller
             'clients' => $clients,
         ]);
     }
-
-    public function search(Request $request)
-    {
-
-        //"select nome from cidades where uf = AM"
-        if ($request->input('busca', 'nome'))
-        {
-            $busca = $request->input('busca', 'nome');
-
-            //$clients = Client::where($busca, 'like', '%' . $busca . '%')
-            $clients = Client::where($request->busca, 'like',  '%' . $request->nome .'%')
-                ->orderBy($busca)
-                ->paginate(8);
-        }
-
-        /*
-            Clients::where($request->busca, 'like',  '%' . $request->nome .'%')
-                ->orWhere($request->busca, $request->nome)
-        */
-
-        else if ($request->input('busca', 'tipo_pessoa'))
-        {
-            $busca = $request->input('busca', 'tipo_pessoa');
-            $clients = Client::where($request->busca, 'like',  '%' . $request->uf .'%')
-                ->orderBy($busca)
-                ->paginate(8);
-        }
-
-        else if ($request->input('busca', 'cidade'))
-        {
-            $busca = $request->input('busca', 'cidade');
-            $clients = Client::where($request->busca, 'like',  '%' . $request->uf .'%')
-                ->orderBy($busca)
-                ->paginate(8);
-        }
-
-        else if ($request->input('busca', 'uf'))
-        {
-            $busca = $request->input('busca', 'uf');
-            $clients = Client::where($request->busca, 'like',  '%' . $request->uf .'%')
-                ->orderBy($busca)
-                ->paginate(8);
-        }
-
-        else if ($request->input('busca', 'telefone'))
-        {
-            $busca = $request->input('busca', 'telefone');
-            $clients = Client::where($request->busca, 'like',  '%' . $request->uf .'%')
-                ->orderBy($busca)
-                ->paginate(8);
-        }
-
-        else if ($request->input('busca', 'cpf_cnpj'))
-        {
-            $busca = $request->input('busca', 'cpf_cnpj');
-            $clients = Client::where($request->busca, 'like',  '%' . $request->uf .'%')
-                ->orderBy($busca)
-                ->paginate(8);
-        }
-
-        else if ($request->input('busca', 'tipo_cliente'))
-        {
-            $busca = $request->input('busca', 'tipo_cliente');
-            $clients = Client::where($request->busca, 'like',  '%' . $request->uf .'%')
-                ->orderBy($busca)
-                ->paginate(8);
-        }
-
-        else if ($request->input('busca', 'onde_nos_encontrou'))
-        {
-            $busca = $request->input('busca', 'onde_nos_encontrou');
-            $clients = Client::where($request->busca, 'like',  '%' . $request->uf .'%')
-                ->orderBy($busca)
-                ->paginate(8);
-        }
-            
-        return view('clients.index')
-            ->with('clients', $clients);
-    }
-
-
-    /*    
-    	if ($request->nome)
-    	{
-	        $nome = $request->nome;
-	        $clients = Client::where('nome', 'like', '%'.$nome.'%')
-	            ->orderBy('nome')
-	            ->paginate(8);
-
-	        return view('clients.index')
-            ->with('clients', $clients);
-		}
-
-		if ($request->uf)
-    	{
-	        $uf = $request->uf;
-	        $clients = Client::where('uf', 'like', '%'.$uf.'%')
-	            ->orderBy('uf')
-	            ->paginate(8);
-
-	        return view('clients.index')
-            ->with('clients', $clients);
-		}
-
-        return redirect()->route('clients.index');
-    */
-    
 
     /**
      * Show the form for creating a new resource.
@@ -349,5 +242,77 @@ class ClientController extends Controller
         $client->delete();
 
         return redirect()->route('clients.index');
+    }
+
+    public function search(Request $request)
+    {
+        if ($request->input('busca', 'nome'))
+        {
+            $busca = $request->input('busca', 'nome');
+
+            //$clients = Client::where($busca, 'like', '%' . $busca . '%')
+            $clients = Client::where($request->busca, 'like',  '%' . $request->nome .'%')
+                ->orderBy($busca)
+                ->paginate(8);
+        }
+
+        else if ($request->input('busca', 'tipo_pessoa'))
+        {
+            $busca = $request->input('busca', 'tipo_pessoa');
+            $clients = Client::where($request->busca, 'like',  '%' . $request->uf .'%')
+                ->orderBy($busca)
+                ->paginate(8);
+        }
+
+        else if ($request->input('busca', 'cidade'))
+        {
+            $busca = $request->input('busca', 'cidade');
+            $clients = Client::where($request->busca, 'like',  '%' . $request->uf .'%')
+                ->orderBy($busca)
+                ->paginate(8);
+        }
+
+        else if ($request->input('busca', 'uf'))
+        {
+            $busca = $request->input('busca', 'uf');
+            $clients = Client::where($request->busca, 'like',  '%' . $request->uf .'%')
+                ->orderBy($busca)
+                ->paginate(8);
+        }
+
+        else if ($request->input('busca', 'telefone'))
+        {
+            $busca = $request->input('busca', 'telefone');
+            $clients = Client::where($request->busca, 'like',  '%' . $request->uf .'%')
+                ->orderBy($busca)
+                ->paginate(8);
+        }
+
+        else if ($request->input('busca', 'cpf_cnpj'))
+        {
+            $busca = $request->input('busca', 'cpf_cnpj');
+            $clients = Client::where($request->busca, 'like',  '%' . $request->uf .'%')
+                ->orderBy($busca)
+                ->paginate(8);
+        }
+
+        else if ($request->input('busca', 'tipo_cliente'))
+        {
+            $busca = $request->input('busca', 'tipo_cliente');
+            $clients = Client::where($request->busca, 'like',  '%' . $request->uf .'%')
+                ->orderBy($busca)
+                ->paginate(8);
+        }
+
+        else if ($request->input('busca', 'onde_nos_encontrou'))
+        {
+            $busca = $request->input('busca', 'onde_nos_encontrou');
+            $clients = Client::where($request->busca, 'like',  '%' . $request->uf .'%')
+                ->orderBy($busca)
+                ->paginate(8);
+        }
+            
+        return view('clients.index')
+            ->with('clients', $clients);
     }
 }

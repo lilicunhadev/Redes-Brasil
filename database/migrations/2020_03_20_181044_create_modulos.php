@@ -14,7 +14,7 @@ class CreateModulos extends Migration
     public function up()
     {
         Schema::create('modulos', function (Blueprint $table) {
-            $table->bigIncrements('id_modulo');
+            $table->bigIncrements('id');
             $table->string('nome', 50);
             $table->string('modalidade', 20);
             $table->string('oficial', 10);
