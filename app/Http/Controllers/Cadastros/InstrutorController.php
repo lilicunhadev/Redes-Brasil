@@ -91,7 +91,7 @@ class InstrutorController extends Controller
                 'instrutor' => $instrutor
             ]);
         }
-        return redirect()->route('instrutores.index');
+        return redirect()->route('instrutores.s');
     }
 
     /**

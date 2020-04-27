@@ -8,9 +8,9 @@
     <h1>
 		{{$instrutor->nome}}
 		&nbsp;&nbsp;
-        <a href="{{ route('modulos.edit', ['modulo' => $modulo->id]) }}"
+        <a href="{{ route('instrutores.edit', $instrutor->id) }}"
              class="btn btn-sm btn-success">
-	  	Visualizar Instrutor
+	  	Editar Instrutor
 	</a>  
 	</h1>
 @endsection
