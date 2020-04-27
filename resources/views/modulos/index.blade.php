@@ -56,7 +56,7 @@
 		<table class="table table-hover">
 			<thead>
                 <tr>
-                      <th>Nome do Módulo</th>
+                      <th>Nome</th>
                       <th>Modalidade</th>
                       <th>Horas</th>
                       <th>

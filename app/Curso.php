@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $mes
  * @property string $dia
  * @property string $agenda_treinamento
- * @property string $nome_curso
+ * @property string $nome
  * @property string $qtde_dias
  * @property string $cidade
  * @property string $uf
@@ -31,6 +31,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Curso extends Model
 {
+    public $timestamps = false;
+    
     /**
      * The primary key for the model.
      * 
@@ -48,6 +50,15 @@ class Curso extends Model
     /**
      * @var array
      */
-    protected $fillable = ['ano', 'mes', 'dia', 'agenda_treinamento', 'nome_curso', 'qtde_dias', 'cidade', 'uf', 'local', 'instrutor', 'modulo', 'modalidade', 'max_alunos', 'inscritos', 'confirmados', 'pago', 'refaca', 'cortesia', 'finalizado', 'observacao', 'campanhas_ativas', 'inicio'];
+    protected $fillable = ['ano', 'mes', 'dia', 'agenda_treinamento', 'nome', 'qtde_dias', 'cidade', 'uf', 'local', 'instrutor', 'modulo', 'modalidade', 'max_alunos', 'inscritos', 'confirmados', 'pago', 'refaca', 'cortesia', 'finalizado', 'observacao', 'campanhas_ativas', 'inicio'];
+
+    public function state()
+    {
+        return $this->hasOne(State::class,'id','uf');
+    }
+    public function city()
+    {
+        return $this->hasOne(City::class,'id','cidade');
+    }
 
 }

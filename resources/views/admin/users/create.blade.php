@@ -32,7 +32,7 @@
                 @csrf
 
                 <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Nome Completo</label>
+                    <label class="col-sm-2 col-form-label">Nome</label>
                     <div class="col-sm-10">
                         <input type="text" name="name" value="{{old('name')}}" class="form-control @error('name') is-invalid @enderror" />
                     </div>   

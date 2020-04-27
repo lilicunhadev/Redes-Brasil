@@ -51,7 +51,15 @@
 </div>
 
 <div class="card-body">
-        <table class="table table-hover">
+
+      @if(count($clients)<1) <div class="alert alert-dismissable alert-warning">
+        <i class="ti ti-alert"></i>
+        <strong>Aten&ccedil;&atilde;o:</strong> Nenhum registro encontrado!
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        </p>
+      @else
+
+      <table class="table table-hover">
             <thead>
                   <tr>
                       <th>Nome</th>
@@ -99,7 +107,8 @@
 
         <br/>
         {{ $clients->links() }}
-
+    
+    @endif
     </div>
 
 @endsection

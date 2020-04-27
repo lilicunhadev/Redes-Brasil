@@ -19,7 +19,7 @@ class CreateCursos extends Migration
             $table->string('mes', 4);
             $table->string('dia', 4);
             $table->string('agenda_treinamento', 50);
-            $table->string('nome_curso', 50);
+            $table->string('nome', 50);
             $table->string('qtde_dias', 5);
             $table->string('cidade', 50);
             $table->string('uf', 5);

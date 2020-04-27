@@ -194,19 +194,11 @@ class UserController extends Controller
     {
         $loggedId = intval(Auth::id());
 
-        /*
-        echo "LID: ".$loggedId."<br/>";
-        echo "ID: ".$id;
-        exit;
-        */
-
         if ($loggedId !== intval($id)) {
             $user = User::find($id);
             $user->delete();
         }
 
         return redirect()->route('users.index');
-
-        //echo "DELETANDO O USUÁRIO ".$id;
     }
 }

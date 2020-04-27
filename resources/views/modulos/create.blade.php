@@ -65,7 +65,7 @@
 
             <div class="form-group row">
                 <div class="col-sm-6">
-                    <label>Prova Cert.</label>
+                    <label>Prova de Certificação</label>
                     <select id="prova_cert" name="prova_cert" class="form-control upper @error('prova_cert') is-invalid @enderror">
                             <option value="" selected disabled>Selecione</option>
                             <option value="SIM" <?php if (old('prova_cert') == 'SIM') { ?>selected="true" <?php }; ?>>SIM</option>

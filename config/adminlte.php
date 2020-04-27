@@ -32,9 +32,9 @@ return [
 
     'logo' => '<b>Redes Brasil</b>',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-    'logo_img_class' => 'brand-image-xl',
-    'logo_img_xl' => null,
-    'logo_img_xl_class' => 'brand-image-xs',
+    //'logo_img_class' => 'brand-image-xl',
+    //'logo_img_xl' => null,
+    //'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'Redes Brasil',
 
     /*
@@ -176,19 +176,35 @@ return [
         [
             'text' => 'Dashboard',
             'url'  => 'painel',
+            //'icon' => 'fas fa-caret-right',
         ],
         [
             'text' => 'Clientes',
             'url'  => 'painel/clients',
+            //'icon' => 'fas fa-caret-right',
         ],
         [
-            'text' => 'Usuários',
-            'url'  => 'painel/users',
+            'text' => 'Instrutores',
+            'url'  => 'painel/instrutores',
+            //'icon' => 'fas fa-caret-right',
             //'can'  => 'edit-users'
         ],
         [
             'text' => 'Módulos',
             'url'  => 'painel/modulos',
+            //'icon' => 'fas fa-caret-right',
+            //'can'  => 'edit-users'
+        ],
+        [
+            'text' => 'Cursos',
+            'url'  => 'painel/cursos',
+            //'icon' => 'fas fa-caret-right',
+            //'can'  => 'edit-users'
+        ],
+        [
+            'text' => 'Usuários',
+            'url'  => 'painel/users',
+            //'icon' => 'fas fa-caret-right',
             //'can'  => 'edit-users'
         ],
         ['header' => 'Configurações'],

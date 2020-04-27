@@ -200,7 +200,6 @@ class ClientController extends Controller
                 'onde_nos_encontrou' => ['required', 'string', 'max:100']
             ]);
 
-
             // Alteração dos dados
             $client->nome = mb_strtoupper($data['nome']);
             $client->tipo_pessoa = mb_strtoupper($data['tipo_pessoa']);

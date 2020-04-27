@@ -24,6 +24,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Instrutor extends Model
 {
+    public $timestamps = false;
+    
     /**
      * The table associated with the model.
      * 

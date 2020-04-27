@@ -15,6 +15,19 @@ Route::get('/', function() {
 	return redirect('painel/login');
 });
 
+//ImageUploader
+// Route::get('image/upload','ImageUploadController@fileCreate');
+// Route::post('image/upload/store','ImageUploadController@fileStore');
+// Route::post('image/delete','ImageUploadController@fileDestroy');
+
+Route::get('/uploadfile', 'UploadfileController@index');
+Route::post('/uploadfile', 'UploadfileController@upload');
+
+Route::get('projects/file', 'ProjectsController@index');
+Route::post('projects/media//{media}', 'ProjectsController@media')->name('projects.media');
+Route::post('projects/media', 'ProjectsController@storeMedia')->name('projects.storeMedia');
+Route::post('projects/media/salvar', 'ProjectsController@update')->name('projects.store');
+
 Route::prefix('painel')->group(function(){
 
 	// Painel Administrativo
@@ -51,10 +64,17 @@ Route::prefix('painel')->group(function(){
 	
 	//Cursos
 	Route::resource('cursos', 'Cadastros\CursoController');
+	//Pesquisa de cursos
+	Route::any('/cursos-search', 'Cadastros\CursoController@search')->name('cursos-search');
 
 	//Módulos
 	Route::resource('modulos', 'Cadastros\ModuloController');
 	//Pesquisa de módulos
 	Route::any('/modulos-search', 'Cadastros\ModuloController@search')->name('modulos-search');
 
+	//Instrutores
+	Route::resource('instrutores', 'Cadastros\InstrutorController');
+	//Pesquisa de módulos
+	Route::any('/instrutor-search', 'Cadastros\InstrutorController@search')->name('instrutor-search');
+	Route::any('/file-upload', 'Cadastros\InstrutorController@storeMedia')->name('modulos.file-upload');
 });
