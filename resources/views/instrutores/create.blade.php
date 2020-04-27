@@ -32,7 +32,7 @@
     <div class="card">
         <div class="card-body">
 
-        {{Form::open(['route' => 'modulos.store' ,'enctype'=>'multipart/form-data', 'files' => true, 'id' => 'upload_form', 'method' => 'post'])}}
+        {{Form::open(['route' => 'instrutores.store' ,'enctype'=>'multipart/form-data', 'files' => true, 'id' => 'upload_form', 'method' => 'post'])}}
             <input type="hidden" id="token_b" name="_token" value="{{ csrf_token() }}"  />
             @csrf
 

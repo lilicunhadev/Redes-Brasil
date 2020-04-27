@@ -103,8 +103,13 @@
             <div class="form-group row">
                 <div class="col-sm-6">
                     <label>Módulo</label>
-                    <input type="text" name="modulo" value="{{old('modulo')}}" 
-                        	   class="upper form-control @error('modulo') is-invalid @enderror" />
+                    <select id="modulo" name="modulo" type="text" class="form-control upper @error('modulo') is-invalid @enderror" required>
+                        <option value="" selected disabled>Selecione</option>
+                    @foreach($modulos as $modulo)
+                            <option value="{{$modulo->id }}" {{ old('uf') == $modulo->id ? 'selected' : '' }}>{!!$modulo->nome!!}</option>
+                    @endforeach
+                    </select>
+                    
                 </div>
                 <div class="col-sm-6">
                     <label>Modalidade</label>

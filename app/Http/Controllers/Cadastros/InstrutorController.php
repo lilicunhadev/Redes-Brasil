@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\cadastros\ClientRequest;
+use App\Http\Requests\cadastros\InstrutorRequest;
 use App\Instrutor;
 use Input;
 use Spatie\MediaLibrary\Models\Media;

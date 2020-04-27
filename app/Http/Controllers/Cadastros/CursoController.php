@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\State;
 use App\City;
+use App\Modulo;
 use Input;
 
 class CursoController extends Controller
@@ -49,7 +50,8 @@ class CursoController extends Controller
     {
         $states=State::all();
         $cities=City::all();
-        return view('cursos.create',compact('states', 'cities'));
+        $modulos=Modulo::all();
+        return view('cursos.create',compact('states', 'cities', 'modulos'));
     }
 
     /**

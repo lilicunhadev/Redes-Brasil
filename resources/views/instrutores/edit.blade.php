@@ -26,7 +26,7 @@
     <div class="card">
         <div class="card-body">
 
-            <form action="{{route('instutores.update', ['instrutor'=>$instrutor->id])}}" method="POST" class="form-horizontal">
+            <form action="{{route('instrutores.update', $instrutor->id)}}" method="POST" class="form-horizontal">
             <input type="hidden" id="token" name="_token" value="{{ csrf_token() }}" />
                     @method('PUT')
                     @csrf
@@ -161,7 +161,7 @@
             </br>
 
             <div class="form-group row center">
-                    <input type="submit" value="Salvar Módulo" class="btn btn-success" />
+                    <input type="submit" value="Salvar Instrutor" class="btn btn-success" />
             </div>
 
             </form>

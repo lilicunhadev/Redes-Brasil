@@ -67,9 +67,10 @@
 
 			<tbody>
 				@foreach($instrutores as $instrutor)
+			
 				<tr>
                       <td>
-                        <a href="{{ route('instrutores.show', $instrutor->id) }}"
+                        <a href="{{ route('instrutores.show',$instrutor->id) }}"
                           class="link-cliente">
                           {{$instrutor->nome}}
                         </a>  
@@ -78,10 +79,10 @@
                       <td>{{$instrutor->horas}}</td>
                       <td>
                         <nobr>
-                          <a href="{{ route('instrutores.show',$instrutor->id) }}" 
+                          <a href="{{ route('instrutores.show', $instrutor->id) }}" 
                             class="btn btn-sm btn-primary"><i class="fas fa-user"></i></a>
 
-                          <a href="{{ route('instrutores.edit', ['instrutor'=>$instrutor->id]) }}" 
+                          <a href="{{ route('instrutores.edit', $instrutor->id) }}" 
                             class="btn btn-sm btn-info"><i class="fas fa-pencil-alt"></i></a>
 
                           <form class="d-inline" method="POST" 
