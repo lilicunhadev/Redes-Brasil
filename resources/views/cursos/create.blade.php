@@ -95,8 +95,12 @@
                 </div>
                 <div class="col-sm-6">
                     <label>Instrutor</label>
-                    <input type="text" name="instrutor" value="{{old('instrutor')}}" 
-                        	   class="upper form-control @error('instrutor') is-invalid @enderror" />
+                    <select id="instrutor" name="instrutor" type="text" class="form-control upper @error('instrutor') is-invalid @enderror" required>
+                        <option value="" selected disabled>Selecione</option>
+                    @foreach($instrutores as $instrutor)
+                            <option value="{{$instrutor->id }}" {{ old('uf') == $instrutor->id ? 'selected' : '' }}>{!!$instrutor->nome!!}</option>
+                    @endforeach
+                    </select>
                 </div>
             </div>
 
@@ -109,12 +113,15 @@
                             <option value="{{$modulo->id }}" {{ old('uf') == $modulo->id ? 'selected' : '' }}>{!!$modulo->nome!!}</option>
                     @endforeach
                     </select>
-                    
                 </div>
+
                 <div class="col-sm-6">
                     <label>Modalidade</label>
-                    <input type="text" name="modalidade" value="{{old('modalidade')}}" 
-                        	   class="upper form-control @error('modalidade') is-invalid @enderror" />
+                    <select id="modalidade" name="modalidade" class="form-control upper @error('modalidade') is-invalid @enderror">
+                            <option value="" selected disabled>Selecione</option>
+                            <option value="PRESENCIAL" <?php if (old('modalidade') == 'PRESENCIAL') { ?>selected="true" <?php }; ?>>PRESENCIAL</option>
+                            <option value="EAD" <?php if (old('modalidade') == 'EAD') { ?>selected="true" <?php }; ?>>EAD</option>
+                    </select>
                 </div>
             </div>
 

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use App\State;
 use App\City;
 use App\Modulo;
+use App\Instrutor;
 use Input;
 
 class CursoController extends Controller
@@ -51,7 +52,8 @@ class CursoController extends Controller
         $states=State::all();
         $cities=City::all();
         $modulos=Modulo::all();
-        return view('cursos.create',compact('states', 'cities', 'modulos'));
+        $instrutores=Instrutor::all();
+        return view('cursos.create',compact('states', 'cities', 'modulos', 'instrutores'));
     }
 
     /**
