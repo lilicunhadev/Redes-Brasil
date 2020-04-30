@@ -15,19 +15,11 @@ Route::get('/', function() {
 	return redirect('painel/login');
 });
 
-//ImageUploader
-// Route::get('image/upload','ImageUploadController@fileCreate');
-// Route::post('image/upload/store','ImageUploadController@fileStore');
-// Route::post('image/delete','ImageUploadController@fileDestroy');
+//Image
+Route::get('image', 'ImageController@index');
+Route::post('save', 'ImageController@save');
 
-Route::get('/uploadfile', 'UploadfileController@index');
-Route::post('/uploadfile', 'UploadfileController@upload');
-
-Route::get('projects/file', 'ProjectsController@index');
-Route::post('projects/media//{media}', 'ProjectsController@media')->name('projects.media');
-Route::post('projects/media', 'ProjectsController@storeMedia')->name('projects.storeMedia');
-Route::post('projects/media/salvar', 'ProjectsController@update')->name('projects.store');
-
+// --- PAINEL ---
 Route::prefix('painel')->group(function(){
 
 	// Painel Administrativo
@@ -77,4 +69,12 @@ Route::prefix('painel')->group(function(){
 	//Pesquisa de módulos
 	Route::any('/instrutor-search', 'Cadastros\InstrutorController@search')->name('instrutor-search');
 	Route::any('/file-upload', 'Cadastros\InstrutorController@storeMedia')->name('modulos.file-upload');
+
+	//Parâmetros
+	Route::resource('parametros', 'Cadastros\ParametroController');
+
+	//Assinatura
+	Route::get('image', 'AssinaturaController@index');
+	Route::post('save', 'AssinaturaController@save');
 });
+// --- PAINEL ---

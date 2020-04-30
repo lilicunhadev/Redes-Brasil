@@ -24,7 +24,6 @@
     @endif
 
     <div class="card">
-
         <div class="card-body">
         
             <form action="{{route('cursos.update', ['curso'=>$curso->id])}}" method="POST" class="form-horizontal">

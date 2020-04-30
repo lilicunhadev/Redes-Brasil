@@ -171,7 +171,7 @@ class InstrutorController extends Controller
                 'fibra_optica' => ['string', 'max:5'],
                 'ead' => ['string', 'max:5'],
                 'endereco' => ['string', 'max:200'],
-                'cpf' => ['string', 'email', 'max:20'],
+                'cpf' => ['string', 'max:20'],
                 'rg' => ['string', 'max:20'],
                 'passaporte' => ['string', 'max:20'],
                 'aeroporto_preferencia' => ['string', 'max:50'],
@@ -196,9 +196,7 @@ class InstrutorController extends Controller
             $instrutor->observacao = mb_strtoupper($data['observacao']);
 
             if(count( $validator->errors()) > 0) {
-                return redirect()->route('instrutores.edit', [
-                    'instrutor' => $id
-                ])->withErrors($validator);
+                return redirect()->route('instrutores.edit', [$id])->withErrors($validator);
             }
 
             $instrutor -> save();

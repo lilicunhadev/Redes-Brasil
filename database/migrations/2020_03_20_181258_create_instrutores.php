@@ -30,7 +30,7 @@ class CreateInstrutores extends Migration
             $table->string('passaporte', 20)->nullable();
             $table->string('aeroporto_preferencia', 50)->nullable();
             $table->string('observacao', 100)->nullable();
-            //assinatura
+            //$table->string('assinatura');
         });
     }
 

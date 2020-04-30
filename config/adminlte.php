@@ -202,6 +202,12 @@ return [
             //'can'  => 'edit-users'
         ],
         [
+            'text' => 'Parâmetros',
+            'url'  => 'painel/parametros',
+            //'icon' => 'fas fa-caret-right',
+            //'can'  => 'edit-users'
+        ],
+        [
             'text' => 'Usuários',
             'url'  => 'painel/users',
             //'icon' => 'fas fa-caret-right',

@@ -15,7 +15,6 @@
 
 @section('content')
 
-
 <div class="card">
   	<div class="box">
     	<div class="box-header">
