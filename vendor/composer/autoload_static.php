@@ -542,6 +542,7 @@ class ComposerStaticInit41510456ac0743b88f73812238b850b3
         'App\\Http\\Controllers\\Cadastros\\ModuloController' => __DIR__ . '/../..' . '/app/Http/Controllers/Cadastros/ModuloController.php',
         'App\\Http\\Controllers\\Cadastros\\ParametroController' => __DIR__ . '/../..' . '/app/Http/Controllers/Cadastros/ParametroController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\ImageController' => __DIR__ . '/../..' . '/app/Http/Controllers/ImageController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',

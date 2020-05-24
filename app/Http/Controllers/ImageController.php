@@ -12,7 +12,7 @@ class ImageController extends Controller
         {
             return view('image');
         }
-     
+      
         public function save(Request $request)
         {
            request()->validate([
