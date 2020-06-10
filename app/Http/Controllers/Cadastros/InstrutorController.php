@@ -2,19 +2,22 @@
 
 namespace App\Http\Controllers\Cadastros;
 
-use App\Http\Controllers\Controller;
+use Input;
+use App\Instrutor;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use App\Traits\UploadAssinatura;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\cadastros\InstrutorRequest;
-use App\Instrutor;
-use Input;
+use App\Http\Controllers\Controller;
 use Spatie\MediaLibrary\Models\Media;
-
+use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\cadastros\InstrutorRequest;
 
 class InstrutorController extends Controller
 {
+    use UploadAssinatura;
+
     public function __construct(){
         $this->middleware('auth');
     }
@@ -27,7 +30,6 @@ class InstrutorController extends Controller
     public function index()
     {
         $instrutores = Instrutor::paginate(8);
-
         return view('instrutores.index', [
             'instrutores' => $instrutores,
         ]);
@@ -49,7 +51,7 @@ class InstrutorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(InstrutorRequest  $request)
+    public function store(InstrutorRequest $request)
     {
         $request->all();
 
@@ -71,8 +73,17 @@ class InstrutorController extends Controller
         $instrutor->aeroporto_preferencia = mb_strtoupper($request['aeroporto_preferencia']);
         $instrutor->observacao = mb_strtoupper($request['observacao']);
 
-        $instrutor->save();
+        if ($request->has('assinatura'))
+        {
+            $image = $request->file('assinatura');
+            $name = Str::slug($request->input('nome')).'_'.time();
+            $folder = '/uploads/images/';
+            $filepath = $folder.$name.'.'.$image->getClientOriginalExtension();
+            $this->uploadAssinatura($image, $folder, 'public', $name);
+            $instrutor->assinatura = $filepath;
+        }
 
+        $instrutor->save();
         return redirect()->route('instrutores.index');
     }
 
@@ -159,7 +170,6 @@ class InstrutorController extends Controller
                 'passaporte' => $data['passaporte'],
                 'aeroporto_preferencia' => $data['aeroporto_preferencia'],
                 'observacao' => $data['observacao']
-
             ], [
                 'nome' => ['required', 'string', 'max:50'],
                 'mikrotik' => ['string', 'max:5'],
@@ -175,7 +185,7 @@ class InstrutorController extends Controller
                 'rg' => ['string', 'max:20'],
                 'passaporte' => ['string', 'max:20'],
                 'aeroporto_preferencia' => ['string', 'max:50'],
-                'observacao' => ['string', 'max:100']
+                'observacao' => ['max:100']
             ]);
 
             // Alteração dos dados
@@ -194,6 +204,16 @@ class InstrutorController extends Controller
             $instrutor->passaporte = mb_strtoupper($data['passaporte']);
             $instrutor->aeroporto_preferencia = mb_strtoupper($data['aeroporto_preferencia']);
             $instrutor->observacao = mb_strtoupper($data['observacao']);
+
+            if ($request->has('assinatura'))
+            {
+                $image = $request->file('assinatura');
+                $name = Str::slug($request->input('nome')).'_'.time();
+                $folder = '/uploads/images/';
+                $filepath = $folder.$name.'.'.$image->getClientOriginalExtension();
+                $this->uploadAssinatura($image, $folder, 'public', $name);
+                $instrutor->assinatura = $filepath;
+            }
 
             if(count( $validator->errors()) > 0) {
                 return redirect()->route('instrutores.edit', [$id])->withErrors($validator);

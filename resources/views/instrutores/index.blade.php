@@ -15,7 +15,6 @@
 
 @section('content')
 
-
 <div class="card">
   	<div class="box">
     	<div class="box-header">
@@ -56,28 +55,23 @@
 		<table class="table table-hover">
 			<thead>
                 <tr>
-                      <th>Nome</th>
-                      <th>Mikrotik</th>
-                      <th>EAD</th>
-                      <th>
-                        <nobr>Ações</nobr>
-                      </th>
+					<th>Nome</th>
+					<th>
+					<nobr>Ações</nobr>
+					</th>
                 </tr>
             </thead>
 
 			<tbody>
 				@foreach($instrutores as $instrutor)
-			
 				<tr>
-                      <td>
-                        <a href="{{ route('instrutores.show',$instrutor->id) }}"
-                          class="link-cliente">
-                          {{$instrutor->nome}}
-                        </a>  
-                      </td>
-                      <td>{{$instrutor->modalidade}}</td>
-                      <td>{{$instrutor->horas}}</td>
-                      <td>
+                    <td>
+						<a href="{{ route('instrutores.show',$instrutor->id) }}"
+							class="link-cliente">
+							{{$instrutor->nome}}
+						</a>  
+                    </td>
+                    <td>
                         <nobr>
                           <a href="{{ route('instrutores.show', $instrutor->id) }}" 
                             class="btn btn-sm btn-primary"><i class="fas fa-user"></i></a>
@@ -92,14 +86,11 @@
                               @csrf
                               <button class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></button>
                           </form>
-
                         </nobr>
-                      </td>
-                    </tr>        
+                    </td>
+                </tr>        
                   @endforeach
-
             </tbody>
-
 		</table>
 
 		<br/>

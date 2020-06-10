@@ -45,8 +45,11 @@
 
                     <div class="col-sm-4">
                         <label>Status</label>
-                        <input type="text" name="status" value="{{old('status')}}" 
-                                   class="upper form-control @error('status') is-invalid @enderror" />
+                        <select id="status" name="status" class="form-control upper @error('status') is-invalid @enderror">
+                            <option value="" selected disabled>Selecione</option>
+                            <option value="ATIVO" <?php if (old('status') == 'ATIVO') { ?>selected="true" <?php }; ?>>ATIVO</option>
+                            <option value="INATIVO" <?php if (old('status') == 'INATIVO') { ?>selected="true" <?php }; ?>>INATIVO</option>
+                        </select>
                     </div>
                 </div>
 

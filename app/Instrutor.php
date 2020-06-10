@@ -50,6 +50,14 @@ class Instrutor extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nome', 'mikrotik', 'ubiquiti', 'juniper', 'vyos', 'cisco', 'linux', 'fibra_optica', 'ead', 'endereco', 'cpf', 'rg', 'passaporte', 'aeroporto_preferencia', 'observacao'];
+    protected $fillable = ['nome', 'mikrotik', 'ubiquiti', 'juniper', 'vyos',
+                           'cisco', 'linux', 'fibra_optica', 'ead', 'endereco',
+                           'cpf', 'rg', 'passaporte', 'aeroporto_preferencia',
+                           'observacao', 'assinatura'];
+
+    public function getAssinatura() 
+    {
+        return $this->assinatura;
+    }
 
 }

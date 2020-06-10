@@ -15,66 +15,69 @@ Route::get('/', function() {
 	return redirect('painel/login');
 });
 
-//Image
-Route::get('image', 'ImageController@index');
-Route::post('save', 'ImageController@save');
 
-// --- PAINEL ---
+// ------ PAINEL ------
 Route::prefix('painel')->group(function(){
 
-	// Painel Administrativo
+	// PAINEL ADMINISTRATIVO
 	Route::get('/', 'Admin\HomeController@index')->name('admin');
 
-	// Login
-	Route::get('login', 'Admin\Auth\LoginController@index')->name('login');
-	Route::post('login', 'Admin\Auth\LoginController@authenticate');
-
-	// Página de Registro
+	// REGISTRO
 	Route::get('register', 'Admin\Auth\RegisterController@index')->name('register');
 	Route::post('register', 'Admin\Auth\RegisterController@register');
 
-	// Logout
+	// LOGIN
+	Route::get('login', 'Admin\Auth\LoginController@index')->name('login');
+	Route::post('login', 'Admin\Auth\LoginController@authenticate');
+
+	// LOGOUT
 	Route::post('logout', 'Admin\Auth\LoginController@logout')->name('logout');
 
-	// CRUD Usuários
+	// USUÁRIOS
 	Route::resource('users', 'Admin\UserController');
 
-	// Clientes
-	Route::resource('clients', 'Cadastros\ClientController');
-
-	// Página Meu Perfil
+	// MEU PERFIL
 	Route::get('profile', 'Admin\ProfileController@index')->name('profile');
 	Route::put('profilesave', 'Admin\ProfileController@save')->name('profile.save');
 
-	//Configurações do Site
+	// CONFIGURAÇÕES DO SITE
 	Route::get('settings', 'Admin\SettingController@index')->name('settings');
 	Route::put('settingssave', 'Admin\SettingController@save')->name('settings.save');
 
+	// CLIENTES
+	Route::resource('clients', 'Cadastros\ClientController');
 	//Pesquisa de Clientes
 	Route::any('/search', 'Cadastros\ClientController@search')->name('search');
 	Route::post('clientes/busca-municipio', 'Cadastros\ClientController@buscarMunicipios')->name('cliente.buscar-municipios');
 	
-	//Cursos
+	// CURSOS
 	Route::resource('cursos', 'Cadastros\CursoController');
 	//Pesquisa de cursos
 	Route::any('/cursos-search', 'Cadastros\CursoController@search')->name('cursos-search');
 
-	//Módulos
+	// MÓDULOS
 	Route::resource('modulos', 'Cadastros\ModuloController');
-	//Pesquisa de módulos
+	// Pesquisa de módulos
 	Route::any('/modulos-search', 'Cadastros\ModuloController@search')->name('modulos-search');
-
-	//Instrutores
-	Route::resource('instrutores', 'Cadastros\InstrutorController');
-	//Pesquisa de módulos
-	Route::any('/instrutor-search', 'Cadastros\InstrutorController@search')->name('instrutor-search');
-	Route::any('/file-upload', 'Cadastros\InstrutorController@storeMedia')->name('modulos.file-upload');
+	// Pesquisa de módulos
+	// Route::any('/instrutor-search', 'Cadastros\InstrutorController@search')->name('instrutor-search');
+	// Route::any('/file-upload', 'Cadastros\InstrutorController@storeMedia')->name('modulos.file-upload');
 
 	//Parâmetros
 	Route::resource('parametros', 'Cadastros\ParametroController');
 
-	//Assinatura
-	Route::get('image', 'AssinaturaController@index');
-	Route::post('save', 'AssinaturaController@save');
+	//Instrutores
+	Route::resource('instrutores', 'Cadastros\InstrutorController');
+	// Assinatura
+	// Route::get('/assinatura', 'AssinaturaController@index')->name('assinatura');
+	// Route::post('/profile/update', 'AssinaturaController@updateProfile')->name('assinatura.update');
+
+	// Assinatura
+	// Route::get('image', 'AssinaturaController@index');
+	// Route::post('save', 'AssinaturaController@save');
+
 });
-// --- PAINEL ---
+
+// Image
+// Route::get('image', 'ImageController@index');
+// Route::post('save', 'ImageController@save');

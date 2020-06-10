@@ -39,6 +39,7 @@ class InstrutorRequest extends FormRequest
             'passaporte' => 'string|max:20',
             'aeroporto_preferencia' => 'string|max:50',
             'observacao' => 'string|max:100',
+            'assinatura' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
         ];
     }
 }

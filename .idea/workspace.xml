@@ -19,7 +19,20 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c29d0e2-8fd1-4fa7-b672-57db46b9455a" name="Default Changelist" comment="" />
+    <list default="true" id="5c29d0e2-8fd1-4fa7-b672-57db46b9455a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Cadastros/InstrutorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Cadastros/InstrutorController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/cadastros/InstrutorRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/cadastros/InstrutorRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Instrutor.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Instrutor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/filesystems.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/filesystems.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_20_181258_create_instrutores.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_20_181258_create_instrutores.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/instrutores/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/instrutores/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/instrutores/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/instrutores/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/instrutores/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/instrutores/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/instrutores/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/instrutores/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -181,6 +194,9 @@
       <workItem from="1589915636493" duration="1923000" />
       <workItem from="1590004924017" duration="36000" />
       <workItem from="1590143923141" duration="1479000" />
+      <workItem from="1590691103560" duration="28000" />
+      <workItem from="1590691269762" duration="21000" />
+      <workItem from="1591645173814" duration="24000" />
     </task>
     <servers />
   </component>
