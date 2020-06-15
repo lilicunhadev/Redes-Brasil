@@ -4,6 +4,7 @@
 
 @section('content_header')
 	<link href="{{ asset('css/clients2.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/form-modulos.css') }}" rel="stylesheet">
 	<h1>
 		Cursos
 		&nbsp;&nbsp;
@@ -77,7 +78,7 @@
                         </a>  
                       </td>
                       <td>{{$curso->inicio}}</td>
-                      <td>{{$curso->city->title}}</td>
+                      <td class="upper">{{$curso->city->title}}</td>
                       <td>{{$curso->state->letter}}</td>
                       <td>
                         <nobr>

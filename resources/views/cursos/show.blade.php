@@ -79,7 +79,7 @@
                 <label>Cidade</label>
             </div>
             <div class="col-sm-8">
-                <label style="color:blue;">{{$curso->cidade}}</label>
+                <label style="color:blue;" class="upper">{{$curso->state->title}}</label>
             </div>
         </div>
 
@@ -88,7 +88,7 @@
                 <label>Estado</label>
             </div>
             <div class="col-sm-8">
-                <label style="color:blue;">{{$curso->uf}}</label>
+                <label style="color:blue;" class="upper">{{$curso->state->title}}</label>
             </div>
         </div>
 
@@ -106,7 +106,7 @@
                 <label>Instrutor</label>
             </div>
             <div class="col-sm-8">
-                <label style="color:blue;">{{$curso->instrutor}}</label>
+                <label style="color:blue;">{{$instrutor->nome}}</label>
             </div>
         </div>
 
@@ -115,7 +115,7 @@
                 <label>Módulo</label>
             </div>
             <div class="col-sm-8">
-                <label style="color:blue;">{{$curso->modulo}}</label>
+                <label style="color:blue;">{{$modulo->nome}}</label>
             </div>
         </div>
 

@@ -149,12 +149,15 @@
                 </div>
 
                 <div class="form-group row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-12">
                         <label>Observação</label>
                         <input type="text" name="observacao" value="{{old('observacao')}}" 
                                 class="upper form-control @error('observacao') is-invalid @enderror" />
                     </div>
-                    <div class="col-sm-6">
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-12">
                         <label>Assinatura</label>
                         <input id="assinatura" type="file" class="form-control" name="assinatura">
                         @if (auth()->user()->image)

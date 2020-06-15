@@ -104,9 +104,13 @@ class CursoController extends Controller
     public function show($id)
     {
         $curso = Curso::find($id);
+        $instrutor = Instrutor::find($curso->instrutor);
+        $modulo = Modulo::find($curso->modulo);
         if ($curso) {
             return view ('cursos.show', [
-                'curso' => $curso
+                'curso' => $curso,
+                'instrutor' => $instrutor,
+                'modulo' => $modulo
             ]);
         }
         return redirect()->route('cursos.index');
