@@ -8,8 +8,8 @@
 	<h1>
 		Cursos
 		&nbsp;&nbsp;
-		<a href="{{ route('cursos.create') }}" class="btn btn-sm btn-success">
-	  	Novo Curso
+		<a href="{{route('cursos.create')}}" class="btn btn-sm btn-success">
+	  Novo Curso
 	</a>  
 	</h1>  
 @endsection
